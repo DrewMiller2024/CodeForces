@@ -1,8 +1,8 @@
 {
   "files.associations": {
-    "ostream": "cpp",
     "iostream": "cpp",
-    "cmath": "cpp",
-    "numeric": "cpp"
+    "deque": "cpp",
+    "string": "cpp",
+    "vector": "cpp"
   }
 }
