@@ -1,1 +1,1 @@
-# This repository is meant for all of my code and solutions for codeforces
+# This repository is meant for all of my code solutions for codeforces
