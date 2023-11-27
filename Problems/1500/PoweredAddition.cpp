@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
- 
+
 using namespace std;
 typedef long long ll;
 typedef vector<ll> vll;
@@ -19,15 +19,25 @@ int32_t main() {
 			vec[i] = a;
 		}
 		ll t = 0;
-		for (ll i = 0; i < n-1; i++) {
-			if (vec[i] < vec[i+1]) {
+		for (ll i = 1; i < n; i++) {
+			if (vec[i] < vec[i-1]) {
 				ll count = 0;
-				while (vec[i] < vec[i+1]) {
+				while (vec[i] < vec[i-1]) {
 					count++;
 					vec[i] = vec[i] + pow(2, count-1);
 				}
 				if (count > t) {
 					t = count;
+				}
+				count--;
+				while (vec[i] > vec[i-1]) {
+					if (vec[i]-pow(2, count) >= vec[i-1]) {
+						vec[i]= vec[i] - pow(2, count);
+					}
+					count--;
+					if (count == -1) {
+						break;
+					}
 				}
 			}
 		}
