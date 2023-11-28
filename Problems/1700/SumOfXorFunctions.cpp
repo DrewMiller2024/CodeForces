@@ -12,10 +12,10 @@ int32_t main() {
   cin >> n;
   ll a;
   cin >> a;
-  vll nums(n);
-  vll pre(n);
-  nums[0] = a;
-  pre[0] = 0^a;
+  vll nums(n+1);
+  vll pre(n+1);
+  nums[0] = 0;
+  pre[0] = 0;
   for (ll i = 1; i < n; i++) {
     ll a;
     cin >> a;
@@ -25,7 +25,7 @@ int32_t main() {
   ll ans = 0;
   for (ll l = 0; l < n; l++) {
     for (ll r = l; r < n; r++) {
-      ans = ans + ((pre[r]^pre[l])*(r-l+1));
+      ans = ans + ((pre[r+1]^pre[l])*(r-l+1));
     }
   }
   ans = ans % mod;
