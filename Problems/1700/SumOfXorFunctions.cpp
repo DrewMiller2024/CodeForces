@@ -1,3 +1,4 @@
+/*This solution exceeds time limit*/
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -10,22 +11,17 @@ int32_t main() {
   ll mod = 998244353;
   ll n;
   cin >> n;
-  ll a;
-  cin >> a;
-  vll nums(n+1);
   vll pre(n+1);
-  nums[0] = 0;
   pre[0] = 0;
-  for (ll i = 1; i < n; i++) {
+  for (ll i = 1; i <= n; i++) {
     ll a;
     cin >> a;
-    nums[i] = a;
     pre[i] = (pre[i-1] ^ a);
   }
   ll ans = 0;
-  for (ll l = 0; l < n; l++) {
-    for (ll r = l; r < n; r++) {
-      ans = ans + ((pre[r+1]^pre[l])*(r-l+1));
+  for (ll l = 1; l <= n; l++) {
+    for (ll r = l; r <= n; r++) {
+        ans += ((pre[r]^pre[l-1])*(r-l+1));
     }
   }
   ans = ans % mod;
